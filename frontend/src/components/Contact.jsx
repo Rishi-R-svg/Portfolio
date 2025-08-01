@@ -47,9 +47,9 @@ const Contact = () => {
 
 
    } catch (err) {
-    console.log(err.response.data.message)
+    console.log(err.response?.data?.message  || "Something went wrong")
 
-    settoastMsg(err.response.data.message)
+    settoastMsg(err.response?.data?.message || "Something went wrong")
     setToast(true)
 
     
