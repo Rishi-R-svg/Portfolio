@@ -1,0 +1,81 @@
+.animated-card {
+   
+   height: 150px;
+   width:  600px;
+   padding: 15px 30px;
+ background: green;
+
+  border-radius: 50px 0 50px 0;
+  color: white;
+  overflow: hidden;
+  transition: 0.5s  ease-in-out;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+  
+}
+
+
+.animated-card:hover {
+    transform: rotateY(180deg);
+}
+
+
+.animated-card:hover .main-text{
+   
+ display: block;
+ transform: rotateY(180deg);
+
+}
+
+.animated-card:hover h1 {
+    display: none;
+}
+
+
+
+
+
+
+.animated-card h1 {
+    font-size: 2.5rem;
+    padding-top: 20px;
+    letter-spacing: 2px;
+    background: linear-gradient(145deg,rgb(205, 123, 212),rgb(101, 206, 223),rgb(162, 96, 212));
+    background-clip: text;
+    color: transparent;
+}
+
+.animated-card .main-text {
+    font-size: 0.8rem;
+   
+    letter-spacing: 2px;
+    padding-bottom: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    line-height: 30px;
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

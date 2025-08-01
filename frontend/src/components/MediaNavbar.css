@@ -1,0 +1,5 @@
+@media(width<962px) {
+    nav a {
+        font-size: 0.8rem;
+    }
+}

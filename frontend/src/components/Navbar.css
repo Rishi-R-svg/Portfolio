@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav .nonemenu {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navactive {
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 200px;
+  background-color: black;
+  justify-content: start;
+  align-items: start;
+  display: flex;
+  padding-top: 100px;
+  padding-left: 50px;
+  right: 0;
+  transition: 0.2s;
+}
+
+.navactive li {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.navactive li a {
+  color: white;
+  font-weight: bold;
+  font-family: "poppins";
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  height: 95%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: 0.2s ease;
+  font-size: 1rem;
+}
+
+.hamburger-menu {
+  height: 20px;
+  width: 30px;
+  box-sizing: border-box;
+  display: none;
+  position: absolute;
+  z-index: 5;
+  right: 20px;
+  transition: 0.2s;
+}
+
+.hamburger-menu span {
+  height: 5px;
+  width: 100%;
+  display: block;
+  background-color: white;
+  margin-bottom: 4px;
+  border-radius: 5px;
+}
+
+.hamburger-menu.active {
+  transform: rotateZ(90deg);
+}
+
+nav .nonemenu li {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav .Active-Nav {
+  background: linear-gradient(145deg, rgb(124, 216, 222), rgb(181, 122, 210));
+  background-clip: text;
+  color: transparent !important;
+}
+
+.Active-Nav::before {
+  height: 3px;
+  width: 100%;
+}
+
+nav .nonemenu a {
+  color: white;
+  font-weight: bold;
+  font-family: "poppins";
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  height: 95%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: 0.2s ease;
+}
+
+nav a::before {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: 95%;
+
+  padding: 0 5px;
+  background: linear-gradient(145deg, rgb(124, 216, 222), rgb(181, 122, 210));
+
+  transition: 0.3s ease;
+}
+
+nav ul li a:hover {
+  background: linear-gradient(145deg, rgb(124, 216, 222), rgb(181, 122, 210));
+  background-clip: text;
+  color: transparent;
+}
+
+nav ul li a:hover::before {
+  height: 3px;
+  width: 100%;
+}
+
+nav {
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  padding-top: 1px;
+  height: 40px;
+  width: 100%;
+  z-index: 5;
+  position: fixed;
+  box-shadow: 0 1px 10px rgba(200, 111, 230, 0.456);
+  margin-bottom: 30px;
+}
+
+nav .logo {
+  font-size: 2rem;
+  background: linear-gradient(145deg, rgb(87, 192, 199), rgb(165, 88, 203));
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  font-family: "poppins";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.theme-box {
+  height: 20px;
+  width: 3.2%;
+  background-color: rgb(255, 255, 255);
+  min-width: 30px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 30px;
+}
+
+.theme-box.active {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.toggle-circle {
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 6%;
+  transition: 0.3s ease-in-out;
+}
+
+.toggle-circle.active {
+  left: 54%;
+  background: url(../assets/moon-svgrepo-com.svg);
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+
+  transition: 0.3s ease-in-out;
+}
+
+.toggle-circle img {
+  height: 100%;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.toggle-circle img.active {
+  display: none;
+  transition: 0.3s ease-in-out;
+}
+
+nav .logo a {
+  color: rgb(29, 189, 230);
+}
+
+nav .logo span {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.phonemenu {
+  height: 100vh;
+  width: 200px;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: black;
+
+  padding-top: 150px;
+  list-style: none;
+}
+
+.phonemenu .coverbox {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(223, 195, 235, 0.075);
+}
+
+.phonemenu li {
+  height: 30px;
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.phonemenu li a {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+}
