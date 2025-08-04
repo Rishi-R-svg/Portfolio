@@ -18,6 +18,34 @@
     padding: 50px;
     margin-bottom: 50px;
   }
+
+  .tech-stack h4 {
+    font-size: 2rem;
+  }
+
+
+  .tech-stack h5 {
+    font-size: 1.6rem;
+  }
+
+  .project-stack .description {
+    font-size: 2rem;
+  }
+
+  .description-content {
+    font-size: 1.5rem;
+  }
+
+
+  .project-stack.active {
+    display: flex;
+   justify-content: center;
+    flex-direction: column;
+  }
+
+
+
+
 }
 
 
@@ -91,6 +119,30 @@
 
 
 
+@media (width<1266px){
+  .tech-stack h4 {
+    font-size: 1.5rem;
+  }
+
+  .tech-stack h5 {
+    font-size: 1rem;
+  }
+
+  .project-stack .description {
+    font-size: 1.5rem;
+  }
+
+  .description-content {
+    font-size: 1rem;
+  }
+
+
+
+}
+
+
+
+
 
 
 
@@ -148,6 +200,19 @@
   .contact-page .form-fill  {
     width: 600px;
   }
+
+  .tech-stack h4 {
+    white-space: nowrap;
+  }
+
+  .project-stack .tech-stack {
+    flex-direction: column;
+    align-items: start;
+  }
+
+ 
+
+
 }
 
 
@@ -245,6 +310,32 @@
  }
 
 
+ .project-content h4 {
+  font-size: 1.5rem;
+ }
+
+ .project-child .project-content {
+  padding: 50px 0;
+ }
+
+ .project-section {
+  padding: 50px;
+ }
+
+
+
+
+
+
+}
+
+
+
+
+@media (width<770px){
+  .project-section .project-heading h1 {
+    font-size:3rem;
+  }
 }
 
 
@@ -344,6 +435,10 @@
   padding: 50px;;
 }
 
+.project-content h4 {
+  font-size: 1rem;
+}
+
 
 
 
@@ -356,6 +451,14 @@
   .contact-page .form-fill {
     width: 90%;
   }
+
+  .project-stack.active {
+    padding: 15px;
+  }
+
+
+
+
 }
 
 
@@ -492,6 +595,15 @@
         font-size: 2rem;
       }
 
+
+      .description-content {
+        font-size: 0.9rem;
+      }
+
+      .tech-stack h5 {
+        font-size: 0.9rem;
+      }
+
      
       
 
@@ -566,7 +678,7 @@
 
 .project-live-check a {
   font-size: 1rem;
-  bottom: -30px;
+ 
   
 }
 
@@ -678,6 +790,18 @@
      .show-skills > h1 {
       font-size: 2.5rem;
      }
+
+     .project-stack .description {
+      font-size: 1.2rem;
+      margin-top: 20px;
+     }
+
+     .tech-stack h4 {
+      font-size: 1.2rem;
+     }
+
+
+
 }
 
 
@@ -698,5 +822,13 @@
 
       .show-skills > h1 {
         font-size: 2rem;
+      }
+
+      .project-live-check a {
+        font-size: 0.8rem;
+      }
+
+      .project-content h4 {
+        font-size: 0.8rem;
       }
 }
