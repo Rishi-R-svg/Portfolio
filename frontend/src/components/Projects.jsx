@@ -9,7 +9,7 @@ import travel from "../assets/Screenshot (6).png";
 import weather from "../assets/Screenshot (7).png";
 import portfolio from "../assets/portfolio ss.png";
 import Note from "../assets/noteapp ss.png";
-import MeriPehchaan from "../assets/MeriPehchaan.png";
+import MeriPehchaan from "../assets/Meripehchaan.png";
 import StockCheckHome from "../assets/StockCheckHome.png";
 
 const Projects = () => {
