@@ -1,11 +1,10 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
-import App from "../App";
 import "./Media.css";
 import "./Navbar.css";
 import sun from "../assets/sun.svg";
-
 import { ChangeContext } from "../App";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   let { isimgtrue, setbool } = useContext(ChangeContext);
@@ -19,7 +18,6 @@ const Navbar = () => {
   }
 
   function handlehamclick() {
-    console.log("loged");
     if (isOpened === true) {
       settOpened(false);
     } else {
@@ -28,9 +26,12 @@ const Navbar = () => {
   }
 
   return (
-    <nav
+    <motion.nav
       className="nav"
       style={{ backgroundColor: isimgtrue ? "Black" : "black" }}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="logo">
         <span>{opening}</span>Portfolio <span>{closingtag}</span>
@@ -41,7 +42,7 @@ const Navbar = () => {
           <NavLink
             to="/"
             className={({ isActive }) => (isActive ? "Active-Nav" : " ")}
-            onClick={()=>settOpened(true)}
+            onClick={() => settOpened(true)}
           >
             Who am I?
           </NavLink>
@@ -50,7 +51,7 @@ const Navbar = () => {
           <NavLink
             to="/Skills"
             className={({ isActive }) => (isActive ? "Active-Nav" : " ")}
-            onClick={()=>settOpened(true)}
+            onClick={() => settOpened(true)}
           >
             Tools I Wield{" "}
           </NavLink>
@@ -58,9 +59,8 @@ const Navbar = () => {
         <li>
           <NavLink
             to="/projects"
-            
             className={({ isActive }) => (isActive ? "Active-Nav" : " ")}
-            onClick={()=>settOpened(true)}
+            onClick={() => settOpened(true)}
           >
             {" "}
             What I Make{" "}
@@ -71,7 +71,7 @@ const Navbar = () => {
           <NavLink
             to="/Contact"
             className={({ isActive }) => (isActive ? "Active-Nav" : " ")}
-            onClick={()=>settOpened(true)}
+            onClick={() => settOpened(true)}
           >
             Let's Talk
           </NavLink>
@@ -95,8 +95,7 @@ const Navbar = () => {
         <span></span>
         <span></span>
       </div>
-      
-    </nav>
+    </motion.nav>
   );
 };
 

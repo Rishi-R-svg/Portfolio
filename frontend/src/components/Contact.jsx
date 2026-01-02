@@ -1,155 +1,177 @@
-import React, { useContext, useRef, useState } from "react";
-import ig from "../assets/instagram-svgrepo-com.svg";
-import fb from "../assets/facebook-svgrepo-com (1).svg";
-import github from "../assets/github-repo-git-octocat-svgrepo-com.svg";
-import linkedin from "../assets/linkedin-svgrepo-com.svg";
+import React, { useContext, useState } from "react";
 import "./Contact.css";
 import { ChangeContext } from "../App";
 import { useForm } from "react-hook-form";
 import { sendData } from "../Authservice/Auth";
+import { motion } from "framer-motion";
 
-
-
+import ig from "../assets/instagram-svgrepo-com.svg";
+import fb from "../assets/facebook-svgrepo-com (1).svg";
+import github from "../assets/github-repo-git-octocat-svgrepo-com.svg";
+import linkedin from "../assets/linkedin-svgrepo-com.svg";
 
 const Contact = () => {
-  const { isimgtrue, setbool } = useContext(ChangeContext);
-  const [toast,setToast] = useState(false)
-  const [teastmsg, settoastMsg] = useState()
- 
-  const [succes, setSucces] = useState(false)
-
+  const { isimgtrue } = useContext(ChangeContext);
+  const [toast, setToast] = useState(false);
+  const [toastMsg, setToastMsg] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting}
+    formState: { errors, isSubmitting },
   } = useForm();
 
   async function onsubmit(e) {
-   
-   try {
-     const res = await sendData(e)
-    console.log(res.data)
-    setToast(false)
-    
-    setSucces(true)
-
-    setTimeout(() => {
-      setSucces(false)
-    }, 4000);
-
-    
-    
-
-    
-  
-
-
-   } catch (err) {
-    console.log(err.response?.data?.message  || "Something went wrong")
-
-    settoastMsg(err.response?.data?.message || "Something went wrong")
-    setToast(true)
-
-    
-
-
-    
-
-
-   }
-   
-   await new Promise(resolve =>setTimeout(resolve,2000))
-
-   reset();
-    
+    try {
+      await sendData(e);
+      setToast(false);
+      setSuccess(true);
+      setTimeout(() => {
+        setSuccess(false);
+      }, 4000);
+      reset();
+    } catch (err) {
+      setToastMsg(err.response?.data?.message || "Something went wrong");
+      setToast(true);
+      setTimeout(() => setToast(false), 4000);
+    }
   }
 
-
-   
-
-  
- 
-
-
+  const glassStyle = {
+    backgroundColor: isimgtrue ? "rgba(20, 20, 20, 0.6)" : "rgba(255, 255, 255, 0.4)",
+    backdropFilter: "blur(12px)",
+    border: isimgtrue ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid rgba(0, 0, 0, 0.1)",
+    boxShadow: isimgtrue ? "0 4px 30px rgba(0, 0, 0, 0.5)" : "0 4px 30px rgba(0, 0, 0, 0.1)",
+    color: isimgtrue ? "white" : "black",
+  };
 
   return (
-    <div className="contact-page">
-       <div className={toast?'toast active':'toast'} >{teastmsg}</div>
-       <div className={succes?' succes-msg active':'succes-msg'} >Sent Successfully i'll  contact you in some time</div>
-      <div className="page-heading">
-        <h1>Contact Me</h1>
-        <p>I will answer your Questions</p>
+    <section
+      className="contact-section"
+      style={{
+        backgroundColor: isimgtrue ? "#050505" : "#f0f2f5",
+        color: isimgtrue ? "white" : "black",
+      }}
+    >
+      <div className="glow-bg" style={{ opacity: isimgtrue ? 0.6 : 0.3 }}></div>
+
+      <div className={`toast-message ${toast ? "show" : ""}`}>
+        {toastMsg}
+      </div>
+      <div className={`success-message ${success ? "show" : ""}`}>
+        Message Sent Successfully!
       </div>
 
-     
+      <div className="contact-container">
+        <motion.div 
+          className="contact-heading"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="main-title">Get in <span className="highlight">Touch</span></h1>
+          <p className="subtitle">Have a project in mind or just want to say hi?</p>
+        </motion.div>
 
-      <div
-        className="form-fill"
-        style={{ color: isimgtrue ? "white" : "black" }}
-      >
-        <form onSubmit={handleSubmit(onsubmit)}>
-          <div>
-            <label> Whats your Full Name ?</label>
-            <input
-              className={errors.fullname ? "firstnameactive" : ""}
-              {...register("fullname", {
-                required: true,
-                minLength: { value: 3, message: "Must have 3 letters" },
-              })}
-              style={{ color: isimgtrue ? "white" : "black" }}
-            />
-            {errors.fullname && <p>{errors.fullname.message}</p>}
-          </div>
-          <div>
-            <label> Your Email ID </label>
-            <input
-              type="email"
-              className={errors.email?'emailactive':''}
-              {...register("email",{
-                required:true,
-                minLength:{value:1, message:'This field is required'}
-              }
-              )}
-              style={{ color: isimgtrue ? "white" : "black" }}
-            />
-            {errors.email && <p>{errors.email.message}</p>}
-          </div>
-
-          <div>
-            <label> Have any quarries ? </label>
-            <textarea
-              className={errors.quarries? 'quarriesactive':''}
-              {...register("quarries",{
-                required:true,
-                minLength:{value:10, message:'Message should contain atleast 10 letters'}
-              })}
-              style={{ color: isimgtrue ? "white" : "black" }}
-            ></textarea>{errors.quarries && <p>{errors.quarries.message}</p>}
+        <motion.div 
+          className="contact-card-wrapper" 
+          style={glassStyle}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          
+          <div className="contact-info-side">
+            <h3>Let's Chat</h3>
+            <p>
+              I am currently <strong>Open to Work</strong>. I'm also open to freelance opportunities, collaborations, or just discussing code. 
+              Feel free to reach out!
+            </p>
             
-          </div>
-          <div>
-            <button  type="submit"  className="submit-btn" disabled={isSubmitting} >{isSubmitting? 'Submitting..' : 'Submit'}</button>
-          </div>
-        </form>
-      </div>
+            <div className="info-item">
+              <span className="info-label">Email Me</span>
+              <a href="mailto:contact@rishi.dev" className="info-value">contact@rishi.dev</a>
+            </div>
 
-      <div className="social-handles">
-        <a href="https://facebook.com">
-          <img src={fb} alt="" />
-        </a>
-        <a href="https://instagram.com" className="ig-position">
-          <img src={ig} alt="" />
-        </a>
-        <a href="https://linkedin.com" className="lin-position">
-          <img src={linkedin} alt="" />
-        </a>
-        <a href="https://github.com" className="git-position">
-          <img src={github} alt="" />
-        </a>
+            <div className="social-links-container">
+              <span>Follow Me</span>
+              <div className="social-row">
+                <a href="https://github.com"><img src={github} alt="GitHub" /></a>
+                <a href="https://linkedin.com"><img src={linkedin} alt="LinkedIn" /></a>
+                <a href="https://instagram.com"><img src={ig} alt="Instagram" /></a>
+                <a href="https://facebook.com"><img src={fb} alt="Facebook" /></a>
+              </div>
+            </div>
+          </div>
+
+          <div className="contact-form-side">
+            <form onSubmit={handleSubmit(onsubmit)}>
+              
+              <div className="form-group">
+                <label>Full Name</label>
+                <input
+                  className={`modern-input ${errors.fullname ? "error" : ""}`}
+                  {...register("fullname", {
+                    required: "Name is required",
+                    minLength: { value: 3, message: "Min 3 chars" },
+                  })}
+                  style={{ 
+                    color: isimgtrue ? "white" : "black",
+                    background: isimgtrue ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)"
+                  }}
+                />
+                {errors.fullname && <span className="error-text">{errors.fullname.message}</span>}
+              </div>
+
+              <div className="form-group">
+                <label>Email Address</label>
+                <input
+                  type="email"
+                  className={`modern-input ${errors.email ? "error" : ""}`}
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: "Invalid email address"
+                    }
+                  })}
+                  style={{ 
+                    color: isimgtrue ? "white" : "black",
+                    background: isimgtrue ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)"
+                  }}
+                />
+                {errors.email && <span className="error-text">{errors.email.message}</span>}
+              </div>
+
+              <div className="form-group">
+                <label>Your Message</label>
+                <textarea
+                  className={`modern-textarea ${errors.quarries ? "error" : ""}`}
+                  rows="4"
+                  {...register("quarries", {
+                    required: "Message is required",
+                    minLength: { value: 10, message: "Min 10 chars" },
+                  })}
+                  style={{ 
+                    color: isimgtrue ? "white" : "black",
+                    background: isimgtrue ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.05)"
+                  }}
+                ></textarea>
+                {errors.quarries && <span className="error-text">{errors.quarries.message}</span>}
+              </div>
+
+              <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </button>
+
+            </form>
+          </div>
+
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

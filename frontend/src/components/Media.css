@@ -832,3 +832,406 @@
         font-size: 0.8rem;
       }
 }
+
+
+/* ------------------------------------------------------------------------------------ */
+
+@media (max-width: 968px) {
+  .hero-container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 40px;
+    height: auto;
+  }
+
+  .hero-content {
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 60px;
+    text-align: left;
+  }
+
+  .greeting {
+    font-size: 1.5rem;
+  }
+
+  .name-title {
+    font-size: 4rem;
+    margin: 5px 0 15px 0;
+  }
+
+  .carousel-container {
+    height: 50px;
+    margin-bottom: 20px;
+  }
+
+  .carousel-item {
+    font-size: 1.8rem;
+    height: 50px;
+    justify-content: flex-start;
+  }
+
+  @keyframes slideText {
+    0%, 15% { transform: translateY(0); }
+    20%, 35% { transform: translateY(-50px); }
+    40%, 55% { transform: translateY(-100px); }
+    60%, 75% { transform: translateY(-150px); }
+    80%, 95% { transform: translateY(-200px); }
+    100% { transform: translateY(-250px); }
+  }
+
+  .hero-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .visual-circle {
+    width: 320px;
+    height: 320px;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .large-box, .social-box {
+    grid-column: span 1;
+  }
+
+  .social-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .social-content {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .social-icons {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .name-title {
+    font-size: 3rem;
+  }
+
+  .carousel-item {
+    font-size: 1.4rem;
+  }
+
+  .modern-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
+  .visual-circle {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+
+
+@media (max-width: 968px) {
+ 
+  .about-section {
+    padding: 100px 20px 50px 20px;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 40px;
+    height: auto;
+  }
+
+  .hero-content {
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 60px;
+    text-align: left;
+  }
+
+  .greeting {
+    font-size: 1.5rem;
+  }
+
+  .name-title {
+    font-size: 4rem;
+    margin: 5px 0 15px 0;
+  }
+
+  .carousel-container {
+    height: 50px;
+    margin-bottom: 20px;
+  }
+
+  .carousel-item {
+    font-size: 1.8rem;
+    height: 50px;
+    justify-content: flex-start;
+  }
+
+  @keyframes slideText {
+    0%, 15% { transform: translateY(0); }
+    20%, 35% { transform: translateY(-50px); }
+    40%, 55% { transform: translateY(-100px); }
+    60%, 75% { transform: translateY(-150px); }
+    80%, 95% { transform: translateY(-200px); }
+    100% { transform: translateY(-250px); }
+  }
+
+  .hero-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .visual-circle {
+    width: 320px;
+    height: 320px;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .large-box, .social-box {
+    grid-column: span 1;
+  }
+
+  .social-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .social-content {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .social-icons {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .name-title {
+    font-size: 3rem;
+  }
+
+  .carousel-item {
+    font-size: 1.4rem;
+  }
+
+  .modern-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
+  .visual-circle {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+
+@media (max-width: 968px) {
+  .skills-section {
+    padding: 100px 20px 50px 20px;
+  }
+
+  .main-title {
+    font-size: 3rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr; 
+  }
+
+  .skill-card {
+    padding: 20px;
+    flex-direction: row; 
+    text-align: left;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .icon-wrapper {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  
+  .skill-info h3 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 968px) {
+  .project-section {
+    padding: 140px 30px 50px 30px;
+  }
+
+  .project-heading {
+    margin-bottom: 60px;
+  }
+
+  .project-heading .main-title {
+    font-size: 3.5rem;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .category-title {
+    font-size: 2rem;
+    margin-top: 60px; 
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-section {
+    padding: 130px 20px 50px 20px;
+  }
+
+  .project-heading .main-title {
+    font-size: 3rem;
+  }
+  
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 40px; 
+  }
+  
+  .projects-category {
+    margin-bottom: 80px;
+  }
+
+  .category-title {
+    margin-top: 80px; 
+    margin-bottom: 30px;
+  }
+  
+  .card-image {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-section {
+    padding: 120px 15px 50px 15px;
+  }
+
+  .project-heading {
+    margin-bottom: 40px;
+  }
+
+  .project-heading .main-title {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .category-title {
+    font-size: 1.6rem;
+    border-left-width: 4px;
+    padding-left: 15px;
+    margin-top: 60px; 
+    margin-bottom: 30px;
+  }
+  
+  .project-card {
+    border-radius: 16px;
+  }
+
+  .tech-tags {
+    gap: 6px;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 968px) {
+  .contact-section {
+    padding: 120px 20px 50px 20px;
+  }
+
+  .main-title {
+    font-size: 2.8rem;
+  }
+
+  .contact-card-wrapper {
+    flex-direction: column;
+  }
+
+  .contact-info-side {
+    padding: 40px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-form-side {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .contact-info-side {
+    padding: 30px 20px;
+  }
+
+  .contact-form-side {
+    padding: 30px 20px;
+  }
+
+  .modern-input, .modern-textarea {
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+}

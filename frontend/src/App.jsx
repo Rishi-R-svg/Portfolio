@@ -1,15 +1,14 @@
-import { useState } from "react";
-import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-
 import { createContext } from "react";
-import Skills from "./components/Skills";
+import Lenis from "lenis";
 
+import Skills from "./components/Skills";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 import Navbar from "./components/Navbar";
-// import Home from './components/Skills'
 
 const RouterPath = createBrowserRouter([
   {
@@ -35,7 +34,7 @@ const RouterPath = createBrowserRouter([
     element: (
       <div>
         <Navbar />
-         <Skills/>
+        <Skills />
       </div>
     ),
   },
@@ -64,8 +63,23 @@ const ChangeContext = createContext();
 function App() {
   let [isimgtrue, setbool] = useState(true);
 
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
-    <ChangeContext.Provider value={{ isimgtrue,setbool}}>
+    <ChangeContext.Provider value={{ isimgtrue, setbool }}>
       <div
         className="app"
         style={{ backgroundColor: isimgtrue ? "black" : "white" }}

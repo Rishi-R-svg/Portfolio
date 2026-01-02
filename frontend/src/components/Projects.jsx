@@ -1,381 +1,207 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./project.css";
+import { ChangeContext } from "../App";
+import { motion } from "framer-motion";
+
 import food1 from "../assets/food1.png";
 import bussiness from "../assets/Screenshot (5).png";
 import travel from "../assets/Screenshot (6).png";
 import weather from "../assets/Screenshot (7).png";
-import todo from "../assets/Screenshot (8).png";
-import portfolio from "../assets/portfolio ss.png"
-import Note from "../assets/noteapp ss.png"
-
-import { ChangeContext } from "../App";
-import { NavLink } from "react-router-dom";
+import portfolio from "../assets/portfolio ss.png";
+import Note from "../assets/noteapp ss.png";
+import MeriPehchaan from "../assets/MeriPehchaan.png";
+import StockCheckHome from "../assets/StockCheckHome.png";
 
 const Projects = () => {
-  const { isimgtrue, setbool } = useContext(ChangeContext);
+  const { isimgtrue } = useContext(ChangeContext);
 
-  const [toggleStack,setToggleStack] = useState(null)
+  const glassStyle = {
+    backgroundColor: isimgtrue ? "rgba(20, 20, 20, 0.6)" : "rgba(255, 255, 255, 0.4)",
+    backdropFilter: "blur(12px)",
+    border: isimgtrue ? "1px solid rgba(255, 255, 255, 0.1)" : "1px solid rgba(0, 0, 0, 0.1)",
+    boxShadow: isimgtrue ? "0 4px 30px rgba(0, 0, 0, 0.5)" : "0 4px 30px rgba(0, 0, 0, 0.1)",
+    color: isimgtrue ? "white" : "black",
+  };
 
+  const clientProjects = [
+    {
+      id: 101,
+      title: "StockCheck360",
+      subtitle: "SaaS Inventory Tool",
+      img: StockCheckHome,
+      stack: ["React", "Supabase", "Tailwind CSS"],
+      desc: "A comprehensive SaaS solution for stock management. Built with React for a dynamic UI and Supabase for a robust backend and real-time database.",
+      live: "#",
+    },
+    {
+      id: 102,
+      title: "MeriPehchaan",
+      subtitle: "NGO Web Application",
+      img: MeriPehchaan,
+      stack: ["React", "NodeJS", "Express", "MongoDB"],
+      desc: "A dedicated MERN stack web application designed for an NGO to manage their activities, outreach programs, and social impact.",
+      live: "#",
+    },
+  ];
 
-  const handleToggleStack = (i)=> {
-    setToggleStack((prev)=>prev===i? null: i)
-  }
+  const personalProjects = [
+    {
+      id: 1,
+      title: "Portfolio",
+      subtitle: "Personal Brand Website",
+      img: portfolio,
+      stack: ["ReactJS", "NodeJS", "Express", "MongoDB"],
+      desc: "My personal portfolio featuring a toggle theme, contact form with Nodemailer integration, and a visitor query system.",
+      live: "https://portfolio-zh3k.onrender.com",
+    },
+    {
+      id: 2,
+      title: "NotesApp",
+      subtitle: "Secure Note Management",
+      img: Note,
+      stack: ["ReactJS", "MongoDB", "Express", "Auth"],
+      desc: "A full-stack notes app with Authentication (Login/Register). Users can Create, Edit, and Delete notes securely.",
+      live: "https://note-app-frontend-djft.onrender.com",
+    },
+    {
+      id: 3,
+      title: "Foodzy",
+      subtitle: "E-Commerce Frontend",
+      img: food1,
+      stack: ["HTML", "CSS", "JavaScript"],
+      desc: "A food grocery UI with live cart handling, favorites functionality, and dynamic bill calculation.",
+      live: "https://rishi-r-svg.github.io/Foodz/",
+    },
+    {
+      id: 4,
+      title: "Amping",
+      subtitle: "Travel Agency UI",
+      img: travel,
+      stack: ["HTML", "CSS", "JavaScript"],
+      desc: "A sleek travel agency website featuring search toggle functionality and a comforting user experience.",
+      live: "https://rishi-r-svg.github.io/Travel/",
+    },
+    {
+      id: 5,
+      title: "Weather App",
+      subtitle: "Live Forecasts",
+      img: weather,
+      stack: ["API", "Async/Await", "JS"],
+      desc: "Live weather tracking using third-party APIs. Displays humidity, temperature, and wind speed with dynamic images.",
+      live: "https://rishi-r-svg.github.io/Weather/",
+    },
+    {
+      id: 6,
+      title: "Business Mgmt",
+      subtitle: "Corporate UI Design",
+      img: bussiness,
+      stack: ["HTML", "CSS"],
+      desc: "A clean, pixel-perfect business management interface focused on layout structure and CSS mastery.",
+      live: "https://rishi-r-svg.github.io/Business-management/",
+    },
+  ];
 
- 
+  const renderProjectCard = (project) => (
+    <motion.div 
+      key={project.id} 
+      className="project-card" 
+      style={glassStyle}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-50px" }}
+    >
+      <div className="card-image">
+        <img src={project.img} alt={project.title} />
+        <div className="card-overlay">
+          <a href={project.live} target="_blank" rel="noopener noreferrer" className="view-btn">
+            View Live ↗
+          </a>
+        </div>
+      </div>
 
+      <div className="card-content">
+        <div className="card-header">
+          <h2>{project.title}</h2>
+          <span>{project.subtitle}</span>
+        </div>
+        
+        <div className="tech-tags">
+          {project.stack.map((tech, i) => (
+            <span key={i} className="tech-tag">{tech}</span>
+          ))}
+        </div>
 
+        <p className="card-desc">{project.desc}</p>
+      </div>
+    </motion.div>
+  );
 
   return (
-    <div className="project-section">
-      <div className="project-heading">
-        <h1>What I can build ?</h1>
-       <h2>Here's my Projects</h2>
-      </div>
-      
-    <div 
-    className="project-container"
+    <section
+      className="project-section"
+      style={{
+        backgroundColor: isimgtrue ? "#050505" : "#f0f2f5",
+        color: isimgtrue ? "white" : "black",
+      }}
     >
+      <div className="glow-bg" style={{ opacity: isimgtrue ? 0.6 : 0.3 }}></div>
 
-
-
-
-
-
-
-
-
-
-     <div
-        className="project-box"
-        style={{
-          color: isimgtrue ? "white" : "black",
-          backgroundColor: isimgtrue
-            ? "rgba(220, 205, 229, 0.097)"
-            : "rgba(225, 176, 242, 0.316)",
-        }}
+      <motion.div 
+        className="project-heading"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.7 }}
       >
-        <div className="project-child">
+        <h1 className="main-title">Featured <span className="highlight">Works</span></h1>
+        <p className="subtitle">Real-world applications and experiments.</p>
+      </motion.div>
 
-          
-        <div className={toggleStack===1? 'project-stack active':'project-stack'}
-         style={{backgroundColor:isimgtrue?'rgba(0, 0, 0, 0.57)':'rgba(255, 255, 255, 0.8)'}}
+      <div className="projects-category">
+        <motion.h2 
+          className="category-title"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
-
-          <div className="tech-stack"><h4>Tech stack :</h4> <h5>ReactJS, ExpressJS, NodeJS, MongoDB, Postman, CSS </h5></div>
-          <div className="description">Description</div>
-          <div className="description-content" >This is my personal portfolio, added some unique features in it like toggle theme and built form using reack hook form in contact section and also used a simple user friendly design and color palatte, for backend i made a visitor model which store question or quarries of visitor which he filled in contact page and then the question will automatically comes to me and also to the visitor via Email, i used nodemailer utility for that deployed on Render.</div>
-
-
-
-          <div className="close-stack"
-          onClick={()=>handleToggleStack(0)}
-        ><i className="fa-solid fa-plus"></i></div></div>
-
-          
-          <div className="project-image">
-            <img src={portfolio} alt="" />
-          </div>
-          <div className="project-content">
-            <h1>
-              {" "}
-              <span>Portfolio</span> 
-            </h1>
-            <h2>
-              built With <span>ReactJS, MongoDB, Express and Nodejs</span> and fully{" "}
-              <span>Responsive</span>.{" "}
-            </h2>
-            <h3>Made that When i learned <span> MERN</span> stack development</h3>
-            <div className="project-live-check"> <a href="https://portfolio-zh3k.onrender.com">See Live</a> 
-            <h4
-             onClick={()=>handleToggleStack(1)}
-            >Read More</h4>
-            
-            </div>
-          </div>
-        </div>
+          Professional <span className="highlight">Projects</span>
+        </motion.h2>
         
-
+        {clientProjects.length > 0 ? (
+          <div className="project-grid">
+            {clientProjects.map(renderProjectCard)}
+          </div>
+        ) : (
+          <motion.div 
+            className="empty-state" 
+            style={glassStyle}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <h3>Coming Soon...</h3>
+            <p>I will add my Client and Professional work here very soon.</p>
+          </motion.div>
+        )}
       </div>
 
-
-
-
-
-
-
- <div
-        className="project-box"
-        style={{
-          color: isimgtrue ? "white" : "black",
-          backgroundColor: isimgtrue
-            ? "rgba(220, 205, 229, 0.097)"
-            : "rgba(225, 176, 242, 0.316)",
-        }}
-      >
-        <div className="project-child">
-
-          
-        <div className={toggleStack===2? 'project-stack active':'project-stack'}
-         style={{backgroundColor:isimgtrue?'rgba(0, 0, 0, 0.57)':'rgb(255, 255, 255)'}}
+      <div className="projects-category">
+        <motion.h2 
+          className="category-title"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
-
-
-          <div className="tech-stack"><h4>Tech stack :</h4> <h5>ReactJS, ExpressJS, NodeJS, MongoDB, Postman, CSS </h5></div>
-          <div className="description">Description</div>
-          <div className="description-content" > A simple notes app in which i added Authontication steps to use it like Register and Login a Registerd user can create, edit, delete his note. The notes will be stored directly to MongoDB, used a simple and user friendly desin and color palatte, used react router for smooth navigation and for connection to backend i used axios and deployed on Render. </div>
-
-          <div className="close-stack"
-          onClick={()=>handleToggleStack(0)}
-        ><i className="fa-solid fa-plus"></i></div></div>
-
-          
-          <div className="project-image">
-            <img src={Note} alt="note app" />
-          </div>
-          <div className="project-content">
-            <h1>
-              {" "}
-              <span>NotesApp</span> 
-            </h1>
-            <h2>
-              built With <span>ReactJS, MongoDB, Express and Nodejs</span> and fully{" "}
-              <span>Responsive</span>.{" "}
-            </h2>
-            <h3>Made that When i was practicing API's, Routes, DB Model, MVC Pattern in<span> MERN</span> stack development</h3>
-            <div className="project-live-check"> <a href="https://note-app-frontend-djft.onrender.com">See Live</a>
-            <h4
-             onClick={()=>handleToggleStack(2)}
-            >Read More</h4>
-            
-             </div>
-          </div>
+          Personal <span className="highlight">Projects</span>
+        </motion.h2>
+        <div className="project-grid">
+          {personalProjects.map(renderProjectCard)}
         </div>
-        
-
       </div>
 
-
-
-
-
-
-      <div
-        className="project-box"
-        style={{
-          color: isimgtrue ? "white" : "black",
-          backgroundColor: isimgtrue
-            ? "rgba(220, 205, 229, 0.097)"
-            : "rgba(225, 176, 242, 0.316)",
-        }}
-      >
-        <div className="project-child">
-          
-        <div className={toggleStack===3? 'project-stack active':'project-stack'}
-         style={{backgroundColor:isimgtrue?'rgba(0, 0, 0, 0.57)':'rgb(255, 255, 255)'}}
-        >
-
-             <div className="tech-stack"><h4>Tech stack :</h4> <h5> HTML, CSS, JS </h5></div>
-          <div className="description">Description</div>
-          <div className="description-content">This is a ecommerce food and grocery website frontend which has unique and smooth UI made with basic tech stack and added some UI functionaliity with Javascript like live cart handleling, add to favouraites and add to cart, live bill count , deployed on github. </div>
-
-
-        
-
-
-
-          <div className="close-stack"
-          onClick={()=>handleToggleStack(0)}
-        ><i className="fa-solid fa-plus"></i></div></div>
-
-          
-          <div className="project-image">
-            <img src={food1} alt="" />
-          </div>
-          <div className="project-content">
-            <h1>
-              {" "}
-              <span>E-Commerce</span> Website "Foodzy"
-            </h1>
-            <h2>
-              builded With <span>HTML,CSS,JS</span> and fully{" "}
-              <span>Responsive</span>.{" "}
-            </h2>
-            <h3>Made that When i learned Javascript</h3>
-            <div className="project-live-check"> <a href="https://rishi-r-svg.github.io/Foodz/">See Live</a>
-            <h4
-             onClick={()=>handleToggleStack(3)}
-            >Read More</h4>
-            
-             </div>
-          </div>
-        </div>
-        
-
-      </div>
-
-      <div
-        className="project-box"
-        style={{
-          color: isimgtrue ? "white" : "black",
-          backgroundColor: isimgtrue
-            ? "rgba(220, 205, 229, 0.097)"
-            : "rgba(225, 176, 242, 0.316)",
-        }}
-      >
-        <div className="project-child">
-          
-        <div className={toggleStack===4? 'project-stack active':'project-stack'}
-         style={{backgroundColor:isimgtrue?'rgba(0, 0, 0, 0.55)':'rgb(255, 255, 255)'}}
-        >
-
-
-          <div className="tech-stack"><h4>Tech stack :</h4> <h5> HTML, CSS, JS </h5></div>
-          <div className="description">Description</div>
-          <div className="description-content"> This is a Bussiness management frontend which is made with simple tech stack and does not have any Javascript functionality init but built a clean and sleek UI using vanila css and used sandbox for the reference built when i was learning css  and deployed on github.  </div>
-
-
-
-
-          <div className="close-stack"
-          onClick={()=>handleToggleStack(0)}
-        ><i className="fa-solid fa-plus"></i></div></div>
-
-          
-          <div className="project-image">
-            <img src={bussiness} alt="" />
-          </div>
-          <div className="project-content">
-            <h1>
-              {" "}
-              <span>Bussiness Management</span> Website
-            </h1>
-            <h2>
-              builded With <span>HTML,CSS</span> and fully{" "}
-              <span>Responsive</span>.{" "}
-            </h2>
-            <h3>
-              Made that When i learned <span>CSS</span>{" "}
-            </h3>
-            <div className="project-live-check"> <a href="https://rishi-r-svg.github.io/Business-management/">See Live</a>
-            <h4
-             onClick={()=>handleToggleStack(4)}
-            >Read More</h4>
-            
-             </div>
-          </div>
-        </div>
-      
-      </div>
-
-      <div
-        className="project-box"
-        style={{
-          color: isimgtrue ? "white" : "black",
-          backgroundColor: isimgtrue
-            ? "rgba(220, 205, 229, 0.097)"
-            : "rgba(225, 176, 242, 0.316)",
-        }}
-      >
-        <div className="project-child">
-          
-        <div className={toggleStack===5? 'project-stack active':'project-stack'}
-         style={{backgroundColor:isimgtrue?'rgba(0, 0, 0, 0.57)':'rgb(255, 255, 255)'}}
-        >
-
-
-          <div className="tech-stack"><h4>Tech stack :</h4> <h5> HTML, CSS, JS </h5></div>
-          <div className="description">Description</div>
-          <div className="description-content">This is a Travel agency website frontend  which is made with basic tech stack like html, css and Javascript, i've added a search baar toggle functionality and used a clean and sleek design and color palatte comforting user experience and deployed on github. </div>
-
-
-
-
-          <div className="close-stack"
-          onClick={()=>handleToggleStack(0)}
-        ><i className="fa-solid fa-plus"></i></div></div>
-          
-          <div className="project-image">
-            <img src={travel} alt="" />
-          </div>
-          <div className="project-content">
-            <h1>
-              {" "}
-              <span>Travel Agency</span> Website "Amping"
-            </h1>
-            <h2>
-              builded With <span>HTML,CSS,JS</span> and fully{" "}
-              <span>Responsive</span>.{" "}
-            </h2>
-            <h3>Made that for practice</h3>
-            <div className="project-live-check"> <a href="https://rishi-r-svg.github.io/Travel/">See Live</a>
-            <h4
-             onClick={()=>handleToggleStack(5)}
-            >Read More</h4>
-            
-            </div>
-          </div>
-        </div>
-      
-      </div>
-
-      <div
-        className="project-box"
-        style={{
-          color: isimgtrue ? "white" : "black",
-          backgroundColor: isimgtrue
-            ? "rgba(220, 205, 229, 0.097)"
-            : "rgba(225, 176, 242, 0.316)",
-        }}
-      >
-        
-        <div className="project-child">
-
-        <div className={toggleStack===6? 'project-stack active':'project-stack'}
-         style={{backgroundColor:isimgtrue?'rgba(0, 0, 0, 0.57)':'rgb(255, 255, 255)'}}
-        >
-
-
-          <div className="tech-stack"><h4>Tech stack :</h4> <h5> HTML, CSS, JS </h5></div>
-          <div className="description">Description</div>
-          <div className="description-content">This is a weather app which is built with basic tech stack. In this app you can see the weather worldwide, I used third party API's in this app it will show the humidiy, temperature and wind speed. It will show the images according to the current weather. deployed on github.</div>
-
-
-
-          <div className="close-stack"
-          onClick={()=>handleToggleStack(0)}
-        ><i className="fa-solid fa-plus"></i></div></div>
-
-        
-          <div className="project-image">
-            <img src={weather} alt="" />
-          </div>
-          <div className="project-content">
-            <h1>
-              {" "}
-              <span>Weather App</span>
-            </h1>
-            <h2>
-              builded With <span>HTML,CSS,JS</span> and fully{" "}
-              <span>Responsive</span>.{" "}
-            </h2>
-            <h3>
-              Made that When i was learning about{" "}
-              <span>API's, Promise's, and Async-Await</span>{" "}
-            </h3>
-            <div className="project-live-check"> <a href="https://rishi-r-svg.github.io/Weather/">See Live</a>
-            <h4  
-            onClick={()=>handleToggleStack(6)}
-            >Read More</h4>
-            
-             </div>
-          </div>
-        </div>
-      
-      </div>
-
-
-      </div>
-    </div>
+    </section>
   );
 };
 
