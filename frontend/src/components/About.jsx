@@ -160,15 +160,15 @@ const About = () => {
               I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
             </p>
             <div className="contact-action">
-               <span>contact@rishi.dev</span>
+               <span>rishikumarsing2004@gmail.com</span>
             </div>
           </div>
           <div className="social-icons">
             <a href="#"><img src={isimgtrue ? insta : binsta} alt="insta" /></a>
             <a href="#"><img src={isimgtrue ? bfacebook : facebook} alt="fb" /></a>
-            <a href="#"><img src={isimgtrue ? github : bgithub} alt="git" /></a>
+            <a href="https://github.com/Rishi-R-svg"><img src={isimgtrue ? github : bgithub} alt="git" /></a>
             <a href="#"><img src={isimgtrue ? twitter : btwitter} alt="x" /></a>
-            <a href="#"><img src={isimgtrue ? blinkdin : linkdin} alt="in" /></a>
+            <a href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQFkfrIfZJqPJQAAAZ1shWoAR1HX0ksUP8iEoxLuyA7YEgDz9cUrWH9zHLz0kBv_3JjYUYY4SQNTj7l0rvgT8d--O0ztLiESHx1wmgVyuACO0BZVifMu1RuVeHLLW8Lsu_OnpHA=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Frishi-singh-3777a7359%3Futm_source%3Dshare_via%26utm_content%3Dprofile%26utm_medium%3Dmember_android"><img src={isimgtrue ? blinkdin : linkdin} alt="in" /></a>
           </div>
         </motion.div>
       </motion.div>
