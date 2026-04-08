@@ -92,7 +92,7 @@ const Contact = () => {
             
             <div className="info-item">
               <span className="info-label">Email Me</span>
-              <a href="mailto:contact@rishi.dev" className="info-value">contact@rishi.dev</a>
+              <a href="mailto:contact@rishi.dev" className="info-value">rishikumarsing2004@gmail.com</a>
             </div>
 
             <div className="social-links-container">
