@@ -31,7 +31,7 @@ const Projects = () => {
       img: StockCheckHome,
       stack: ["React", "Supabase", "Tailwind CSS"],
       desc: "A comprehensive SaaS solution for stock management. Built with React for a dynamic UI and Supabase for a robust backend and real-time database.",
-      live: "#",
+      live: "https://www.stockcheck360.com/",
     },
     {
       id: 102,
@@ -40,7 +40,7 @@ const Projects = () => {
       img: MeriPehchaan,
       stack: ["React", "NodeJS", "Express", "MongoDB"],
       desc: "A dedicated MERN stack web application designed for an NGO to manage their activities, outreach programs, and social impact.",
-      live: "#",
+      live: "https://www.meripehchaan.org/",
     },
   ];
 
